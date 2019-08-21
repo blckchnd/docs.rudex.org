@@ -27,21 +27,36 @@ quote_volume - Quoted units traded in the last 24 hours
  "lowest_ask": "0.00020440",
  "highest_bid": "0.00021419",
  "percent_change": "-0.04",
- "base_volume": "0.22576780",
- "quote_volume": "1102.41508000"
+ "quote_volume": "1102.41508000",
+ "base_volume": "0.22576780"
 }, 
+ {....},
+ {....},
  ...
 ]
 ```
+
 ## Asset Details
 
-GET https://ticker.rudex.org/asset/<ASSET> 
+GET https://ticker.rudex.org/asset/<ASSET\> 
 
 Opens asset details page
+
+### Example
+
+```
+GET https://ticker.rudex.org/asset/EOS 
+```
 
 ## Market
 
 GET https://ticker.rudex.org/market/<QUOTE\>_<BASE\>
 
-Opens market page as link to market (our tokens on bitshares dex has prefix, this endpoint will redirect to right place).
+Opens market page as link to market (our tokens on bitshares dex has prefix, this endpoint will redirect to right place
+
+### Example
+
+```
+GET https://ticker.rudex.org/market/EOS_BTS
+```
                    
