@@ -24,11 +24,11 @@ quote_volume - Quoted units traded in the last 24 hours
  "name": "BTS_ETH",
  "updated_at": "2019-08-20T17:21:42.000Z",
  "latest": "0.00020439",
- "lowest_ask": "0.00021419",
- "highest_bid": "0.00020440",
+ "lowest_ask": "0.00020440",
+ "highest_bid": "0.00021419",
  "percent_change": "-0.04",
- "base_volume": "1102.41508000",
- "quote_volume": "0.22576780"
+ "base_volume": "0.22576780",
+ "quote_volume": "1102.41508000"
 }, 
  ...
 ]
