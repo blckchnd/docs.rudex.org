@@ -33,6 +33,17 @@ GET https://ticker.rudex.org/api/v1/assets
   ...
 ```
 
+```
+name - Name of cryptocurrency
+unified_cryptoasset_id - Unique ID of cryptocurrency assigned by Unified Cryptoasset ID.
+can_withdraw - Identifies whether withdraws are enabled or disabled.
+can_deposit - Identifies whether deposits are enabled or disabled.
+min_withdraw - Identifies the single minimum withdraw amount of a cryptocurrency.
+max_withdraw - Identifies the single maximum withdraw amount of a cryptocurrency.
+maker_fee - Fees applied when liquidity is added to the order book.
+taker_fee - Fees applied when liquidity is removed from the order book.
+```
+
 
 ## ENDPOINT 2
 #### TICKER /ticker
@@ -55,6 +66,20 @@ GET https://ticker.rudex.org/api/v1/ticker
     "updated_at": "2019-10-28T15:51:27.000Z"
   },
   ...
+```
+
+
+```
+base_id - The quote pair Unified Cryptoasset ID.
+quote_id - The base pair Unified Cryptoasset ID.
+last_price - The price of the last executed order
+base_volume - 24 hour trading volume in base pair volume
+quote_volume - 24 hour trading volume in quote pair volume
+isFrozen - Indicates if the market is currently enabled (1) or disabled (0)
+lowest_ask - Lowest current purchase price for this asset
+highest_bid - Highest current sale price for this asset
+percent_change - Price change percentage
+updated_at - Time when data retrieved
 ```
 
 
@@ -102,6 +127,13 @@ GET https://ticker.rudex.org/api/v1/orderbook/EOS_BTC
 }
 ```
 
+```
+timestamp - Unix timestamp in milliseconds for when the last updated time occurred.
+bids - An array containing 2 elements. The offer price and quantity for each bid order.
+asks - An array containing 2 elements. The ask price and quantity for each ask order.
+
+```
+
 ## ENDPOINT 4
 #### TRADES /trades/market_pair
 The trades endpoint is to return data on all recently completed trades for a given market pair.
@@ -111,6 +143,14 @@ GET https://ticker.rudex.org/api/v1/trades/EOS_BTC
 ```
 
 [
+  {
+    "tradeid": 27149,
+    "price": "0.00035319",
+    "base_volume": "0.00175976",
+    "quote_volume": "4.98240000",
+    "trade_timestamp": "1572285279000",
+    "type": "buy"
+  },
   {
     "tradeid": 27147,
     "price": "0.00035620",
@@ -127,19 +167,35 @@ GET https://ticker.rudex.org/api/v1/trades/EOS_BTC
     "trade_timestamp": "1572269424000",
     "type": "sell"
   },
-  {
-    "tradeid": 27143,
-    "price": "0.00035956",
-    "base_volume": "0.31610000",
-    "quote_volume": "0.00011366",
-    "trade_timestamp": "1572248643000",
-    "type": "buy"
-  },
   
   ..
   
 ]
 
+```
+
+```
+trade_id - A unique ID associated with the trade for the currency pair transaction
+price - Transaction price in base pair volume
+base_volume - Transaction amount in base pair volume.
+quote_volume - Transaction amount in quote pair volume.
+trade_timestamp - Unix timestamp in milliseconds for when the transaction occurred.
+type - 
+Used to determine whether or not the transaction originated as a buy or sell.
+  Buy – Identifies an ask was removed from the order book.
+  Sell – Identifies a bid was removed from the order book.
+```
+
+
+## ENDPOINT 5
+#### Market Link /market/market_pair
+Opens market page as link to market (our tokens on bitshares dex has prefix, this endpoint will redirect to right place
+
+
+### Example
+
+```
+GET https://ticker.rudex.org/api/v1/market/EOS_BTC
 ```
 
 
