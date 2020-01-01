@@ -75,7 +75,7 @@ quote_id - The base pair Unified Cryptoasset ID.
 last_price - The price of the last executed order
 base_volume - 24 hour trading volume in base pair volume
 quote_volume - 24 hour trading volume in quote pair volume
-isFrozen - Indicates if the market is currently enabled (1) or disabled (0)
+isFrozen - Indicates if the market is currently enabled (0) or disabled (1).
 lowest_ask - Lowest current purchase price for this asset
 highest_bid - Highest current sale price for this asset
 percent_change - Price change percentage
