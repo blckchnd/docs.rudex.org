@@ -10,6 +10,44 @@ https://ticker.rudex.org/api/v1/
 https://docs.google.com/document/d/1S4urpzUnO2t7DmS_1dc4EL4tgnnbTObPYXvDeBnukCg
 )
 
+## Summary ENDPOINT 0
+#### ASSETS   /summary
+The summary endpoint is to provide an overview of market data for all tickers and all market pairs on the exchange.
+GET https://ticker.rudex.org/api/v1/summary
+
+```
+[
+  {
+    "trading_pairs": "EOS_BTS",
+    "last_price": "111.00479306",
+    "lowest_ask": "114.14482696",
+    "highest_bid": "117.75577362",
+    "base_volume": "9254.04171000",
+    "quote_volume": "78.23180000",
+    "price_change_percent_24h": "-5.73000000",
+    "highest_price_24h": "122.51455417",
+    "lowest_price_24h": "108.82822814",
+    "timestamp": "1596821592"
+  },
+  ...
+]
+```
+
+```
+trading_pairs - Identifier of a ticker with delimiter to separate base/quote, eg. BTC-USD (Price of BTC is quoted in USD)
+last_price - Last transacted price of base currency based on given quote currency
+lowest_ask - Lowest Ask price of base currency based on given quote currency
+highest_bid - Highest bid price of base currency based on given quote currency
+base_volume - 24-hr volume of market pair denoted in BASE currency
+quote_volume - 24-hr volume of market pair denoted in QUOTE currency
+price_change_percent_24h - 24-hr % price change of market pair
+highest_price_24h - Highest price of base currency based on given quote currency in the last 24-hrs
+lowest_price_24h - Lowest price of base currency based on given quote currency in the last 24-hrs
+timestamp - Unix timestamp in milliseconds for when the last updated time occurred.
+
+```
+
+
 
 ## ENDPOINT 1
 #### ASSETS   /assets
@@ -63,7 +101,7 @@ GET https://ticker.rudex.org/api/v1/ticker
     "lowest_ask": "0.00036178",
     "highest_bid": "0.00035462",
     "percent_change": "4.25",
-    "updated_at": "2019-10-28T15:51:27.000Z"
+    "updated_at": "1596821592"
   },
   ...
 ```
@@ -79,7 +117,8 @@ isFrozen - Indicates if the market is currently enabled (0) or disabled (1).
 lowest_ask - Lowest current purchase price for this asset
 highest_bid - Highest current sale price for this asset
 percent_change - Price change percentage
-updated_at - Time when data retrieved
+updated_at - Unix timestamp in milliseconds for when the last updated time occurred.
+
 ```
 
 
@@ -148,7 +187,7 @@ GET https://ticker.rudex.org/api/v1/trades/EOS_BTC
     "price": "0.00035319",
     "base_volume": "0.00175976",
     "quote_volume": "4.98240000",
-    "trade_timestamp": "1572285279000",
+    "trade_timestamp": "1572285279",
     "type": "buy"
   },
   {
@@ -156,7 +195,7 @@ GET https://ticker.rudex.org/api/v1/trades/EOS_BTC
     "price": "0.00035620",
     "base_volume": "0.00041747",
     "quote_volume": "1.17200000",
-    "trade_timestamp": "1572269424000",
+    "trade_timestamp": "1572269424",
     "type": "sell"
   },
   {
@@ -164,7 +203,7 @@ GET https://ticker.rudex.org/api/v1/trades/EOS_BTC
     "price": "0.00035620",
     "base_volume": "0.00008687",
     "quote_volume": "0.24390000",
-    "trade_timestamp": "1572269424000",
+    "trade_timestamp": "1572269424",
     "type": "sell"
   },
   
@@ -199,44 +238,6 @@ GET https://ticker.rudex.org/api/v1/market/EOS_BTC
 ```
 
 
-
-## VERSION 0 (OLD) DEPRECATED
-
-## Tickers
-
-GET https://ticker.rudex.org/api/v0/tickers
-
-Retrieves array with summary information for each currency pair listed on the exchange. Fields include:
-
-```
-name - Name of pair <QUOTE>_<BASE>
-updated_at - Time when data retrieved
-latest - Execution price for the most recent trade for this pair
-lowest_ask - Lowest current purchase price for this asset
-highest_bid - Highest current sale price for this asset
-percent_change - Price change percentage
-base_volume - Base units traded in the last 24 hours
-quote_volume - Quoted units traded in the last 24 hours
-```
-### Example
-
-```
-[
-{
- "name": "BTS_ETH",
- "updated_at": "2019-08-20T17:21:42.000Z",
- "latest": "0.00020439",
- "lowest_ask": "0.00020440",
- "highest_bid": "0.00021419",
- "percent_change": "-0.04",
- "quote_volume": "1102.41508000",
- "base_volume": "0.22576780"
-}, 
- {....},
- {....},
- ...
-]
-```
 
 ## Asset Details
 
