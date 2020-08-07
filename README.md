@@ -13,6 +13,7 @@ https://docs.google.com/document/d/1S4urpzUnO2t7DmS_1dc4EL4tgnnbTObPYXvDeBnukCg
 ## Summary ENDPOINT 0
 #### ASSETS   /summary
 The summary endpoint is to provide an overview of market data for all tickers and all market pairs on the exchange.
+
 GET https://ticker.rudex.org/api/v1/summary
 
 ```
