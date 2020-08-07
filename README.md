@@ -124,7 +124,7 @@ updated_at - Unix timestamp in milliseconds for when the last updated time occur
 
 
 ## ENDPOINT 3
-#### ORDERBOOK /orderbook/market_pair
+#### ORDERBOOK /orderbook/{quote_base}
 The order book endpoint is to provide a complete level 2 order book (arranged by best asks/bids) with full depth returned for a given market pair.
 
 GET https://ticker.rudex.org/api/v1/orderbook/EOS_BTC
@@ -175,7 +175,7 @@ asks - An array containing 2 elements. The ask price and quantity for each ask o
 ```
 
 ## ENDPOINT 4
-#### TRADES /trades/market_pair
+#### TRADES /trades/{quote_base}
 The trades endpoint is to return data on all recently completed trades for a given market pair.
 
 GET https://ticker.rudex.org/api/v1/trades/EOS_BTC
@@ -226,41 +226,23 @@ Used to determine whether or not the transaction originated as a buy or sell.
   Sell – Identifies a bid was removed from the order book.
 ```
 
+# Additional INFO
 
-## ENDPOINT 5
-#### Market Link /market/market_pair
+#### Market Link /market/{quote_base}
 Opens market page as link to market (our tokens on bitshares dex has prefix, this endpoint will redirect to right place
 
-
-### Example
-
-```
 GET https://ticker.rudex.org/api/v1/market/EOS_BTC
-```
+
+or
+
+GET https://ticker.rudex.org/market/EOS_BTS
 
 
+#### Asset Details asset/{asset}
 
-## Asset Details
-
-GET https://ticker.rudex.org/asset/<ASSET\> 
+GET https://ticker.rudex.org/asset/EOS
 
 Opens asset details page
 
-### Example
 
-```
-GET https://ticker.rudex.org/asset/EOS 
-```
-
-## Market
-
-GET https://ticker.rudex.org/market/<QUOTE\>_<BASE\>
-
-Opens market page as link to market (our tokens on bitshares dex has prefix, this endpoint will redirect to right place
-
-### Example
-
-```
-GET https://ticker.rudex.org/market/EOS_BTS
-```
                    
